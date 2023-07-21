@@ -8,19 +8,6 @@ import 'package:nid/screens/browser.dart';
 import 'package:nid/admanager.dart';
 import 'package:nid/screens/no_internet.dart';
 
-// Start :: Connectivity -------------------------------------------------------
-bool isConnected = true;
-final connectivityResult = Connectivity().checkConnectivity();
-
-Future<void> checkConnectivity() async {
-  connectivityResult.then((value) {
-    if (value == ConnectivityResult.none) {
-      isConnected = false;
-    }
-  });
-}
-// End :: Connectivity ---------------------------------------------------------
-
 // Start :: AppOpenAd ----------------------------------------------------------
 
 Future<void> showAppOpenAd() async {
@@ -46,15 +33,30 @@ Future<void> showAppOpenAd() async {
     }),
   );
 }
+
 // End :: AppOpenAd ------------------------------------------------------------
 
+// Start :: Connectivity -------------------------------------------------------
+bool isConnected = false;
+
+Future<void> checkConnection() async {
+  final connectivityResult = Connectivity().checkConnectivity();
+  if (await connectivityResult == ConnectivityResult.mobile ||
+      await connectivityResult == ConnectivityResult.wifi ||
+      await connectivityResult == ConnectivityResult.ethernet ||
+      await connectivityResult == ConnectivityResult.vpn) {
+    isConnected = true;
+  }
+}
+
+// End :: Connectivity ---------------------------------------------------------
 // Start :: Main ---------------------------------------------------------------
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await showAppOpenAd();
-  checkConnectivity();
+  await checkConnection();
 
   FirebaseAnalytics.instance.logScreenView(
     screenName: 'Root',

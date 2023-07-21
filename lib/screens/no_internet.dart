@@ -37,7 +37,7 @@ class _NoInternetConnectionState extends State<NoInternetConnection> {
               Navigator.of(context).popUntil((route) => route.isFirst);
             },
           ),
-          title: const Text('BR Verifier',
+          title: const Text('BDRN Verification',
               style: TextStyle(color: Colors.black45, fontSize: 15)),
           actions: <Widget>[
             IconButton(
@@ -56,11 +56,16 @@ class _NoInternetConnectionState extends State<NoInternetConnection> {
               Icon(
                 Icons.signal_wifi_off_rounded,
                 color: Colors.black12,
-                size: 150,
+                size: 100,
               ),
               Center(
                   child: Text('No Internet Connection',
                       style: TextStyle(color: Colors.black26, fontSize: 15))),
+              Expanded(child: SizedBox()),
+              ElevatedButton(
+                onPressed: null,
+                child: Text('Try Again'),
+              ),
               Expanded(child: SizedBox()),
             ],
           ),

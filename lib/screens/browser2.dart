@@ -3,15 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:nid/screens/about.dart';
-import 'package:nid/screens/browser2.dart';
+import 'package:nid/screens/browser.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:nid/admanager.dart';
 
-class Browser extends StatefulWidget {
-  const Browser({Key? key, required this.url, this.analytics, this.observer})
+class UDRNBrowser extends StatefulWidget {
+  const UDRNBrowser(
+      {Key? key, required this.url, this.analytics, this.observer})
       : super(key: key);
 
   final String url;
@@ -19,10 +20,11 @@ class Browser extends StatefulWidget {
   final FirebaseAnalyticsObserver? observer;
 
   @override
-  State<Browser> createState() => _BrowserState();
+  State<UDRNBrowser> createState() => _UDRNBrowserState();
 }
 
-class _BrowserState extends State<Browser> with TickerProviderStateMixin {
+class _UDRNBrowserState extends State<UDRNBrowser>
+    with TickerProviderStateMixin {
   late final WebViewController _controller;
 
   // Start :: BannerAd ---------------------------------------------------------
@@ -40,34 +42,34 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
             _bannerAd = ad as BannerAd?;
           });
           widget.analytics!.logEvent(
-            name: "browser_banner_ad_loaded",
+            name: "UDRNBrowser_banner_ad_loaded",
             parameters: {
-              "full_text": "Browser's Banner Ad Loaded",
+              "full_text": "UDRNBrowser's Banner Ad Loaded",
             },
           );
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
           widget.analytics!.logEvent(
-            name: "browser_banner_ad_failed_to_load",
+            name: "UDRNBrowser_banner_ad_failed_to_load",
             parameters: {
-              "full_text": "Browser's Banner Ad Failed To Load",
+              "full_text": "UDRNBrowser's Banner Ad Failed To Load",
             },
           );
           ad.dispose();
         },
         onAdOpened: (Ad ad) {
           widget.analytics!.logEvent(
-            name: "browser_banner_ad_opened",
+            name: "UDRNBrowser_banner_ad_opened",
             parameters: {
-              "full_text": "Browser's Banner Ad Opened",
+              "full_text": "UDRNBrowser's Banner Ad Opened",
             },
           );
         },
         onAdClosed: (Ad ad) {
           widget.analytics!.logEvent(
-            name: "browser_banner_ad_closed",
+            name: "UDRNBrowser_banner_ad_closed",
             parameters: {
-              "full_text": "Browser's Banner Ad Closed",
+              "full_text": "UDRNBrowser's Banner Ad Closed",
             },
           );
         },
@@ -113,7 +115,7 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     FirebaseAnalytics.instance.logScreenView(
-      screenName: 'BrowserPage',
+      screenName: 'UDRNBrowserPage',
     );
 
     loadBannerAd();
@@ -177,7 +179,7 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
           onUrlChange: (UrlChange change) {
             // debugPrint('url change to ${change.url}');
             FirebaseAnalytics.instance.logEvent(
-              name: "browser_url_change",
+              name: "UDRNBrowser_url_change",
               parameters: {
                 "full_text": "Url change to ${change.url}",
               },
@@ -238,8 +240,9 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Browser(
-                                url: 'https://everify.bdris.gov.bd',
+                          builder: (context) => const UDRNBrowser(
+                                url:
+                                    'https://everify.bdris.gov.bd/UDRNVerification',
                               )));
                 }),
             IconButton(
@@ -247,9 +250,8 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const UDRNBrowser(
-                              url:
-                                  "https://everify.bdris.gov.bd/UDRNVerification")));
+                          builder: (context) => const Browser(
+                              url: "https://everify.bdris.gov.bd")));
                 },
                 icon: const Icon(
                   Icons.swap_vert_circle_outlined,

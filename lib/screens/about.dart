@@ -41,7 +41,7 @@ class _AboutState extends State<About> {
             IconButton(
               onPressed: () async {
                 await launchOutside(Uri.parse(
-                    'https://play.google.com/store/apps/details?id=bd.gov.bdris.everify'));
+                    'https://play.google.com/store/apps/details?id=bd.gov.bdris.verify'));
                 FirebaseAnalytics.instance
                     .logEvent(name: "rate_this_app_top_icon");
               },
@@ -73,7 +73,7 @@ class _AboutState extends State<About> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'Version 1.3.5',
+                        'Version 1.3.16',
                         style: TextStyle(fontSize: 14),
                       ),
                     ],
@@ -91,7 +91,7 @@ class _AboutState extends State<About> {
                   ),
                   onPressed: () async {
                     await launchOutside(Uri.parse(
-                        'https://play.google.com/store/apps/details?id=bd.gov.bdris.everify'));
+                        'https://play.google.com/store/apps/details?id=bd.gov.bdris.verify'));
                     FirebaseAnalytics.instance
                         .logEvent(name: "rate_this_app_bottom_button");
                   },
