@@ -9,15 +9,12 @@ import 'package:nid/admanager.dart';
 import 'package:nid/screens/no_internet.dart';
 
 // Start :: Connectivity -------------------------------------------------------
-bool isConnected = false;
+bool isConnected = true;
 final connectivityResult = Connectivity().checkConnectivity();
 
 Future<void> checkConnectivity() async {
   connectivityResult.then((value) {
-    if (value == ConnectivityResult.mobile ||
-        value == ConnectivityResult.wifi) {
-      isConnected = true;
-    } else {
+    if (value == ConnectivityResult.none) {
       isConnected = false;
     }
   });
