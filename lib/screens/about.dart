@@ -62,18 +62,18 @@ class _AboutState extends State<About> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/images/br.jpg',
+                        'assets/images/br.png',
                         width: 100,
                         height: 100,
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'BR Verifier: Bangladesh',
+                        'BDRN Verification: Bangladesh',
                         style: TextStyle(fontSize: 18),
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'Version 1.0.4',
+                        'Version 1.3.5',
                         style: TextStyle(fontSize: 14),
                       ),
                     ],

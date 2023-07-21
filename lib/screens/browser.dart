@@ -225,18 +225,8 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            // icon: const Icon(Icons.verified, color: Colors.black45),
-            icon: Image.asset(
-              'assets/images/br.jpg',
-              width: 25,
-              height: 25,
-            ),
-            onPressed: () async {
-              Navigator.of(context).popUntil((route) => route.isFirst);
-            },
-          ),
-          title: const Text('BR Verifier',
+          leading: const Icon(Icons.verified_rounded, color: Colors.black45),
+          title: const Text('BDRN Verification',
               style: TextStyle(color: Colors.black45, fontSize: 15)),
           actions: <Widget>[
             IconButton(
