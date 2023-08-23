@@ -1,2 +1,2 @@
-# nid-portal
-National Identity Card Management System of Bangladesh
+# bd-results-portal
+All Results Portal of Bangladesh
