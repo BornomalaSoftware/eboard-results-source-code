@@ -73,7 +73,7 @@ class _AboutState extends State<About> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'Version 1.0.0',
+                        'Version 1.0.1',
                         style: TextStyle(fontSize: 14),
                       ),
                     ],

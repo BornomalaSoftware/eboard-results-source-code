@@ -224,7 +224,7 @@ class _BrowserState extends State<Browser> with TickerProviderStateMixin {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.numbers_outlined, color: Colors.black45),
+          leading: const Icon(Icons.numbers_rounded, color: Colors.black45),
           title: const Text('eBoardResults',
               style: TextStyle(color: Colors.black45, fontSize: 15)),
           actions: <Widget>[

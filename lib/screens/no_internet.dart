@@ -24,7 +24,7 @@ class _NoInternetConnectionState extends State<NoInternetConnection> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const Browser(
-                          url: 'https://everify.bdris.gov.bd',
+                          url: 'https://eboardresults.com/v2/home',
                         )));
           }
         });
@@ -32,12 +32,12 @@ class _NoInternetConnectionState extends State<NoInternetConnection> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.verified, color: Colors.black45),
+            icon: const Icon(Icons.numbers_rounded, color: Colors.black45),
             onPressed: () async {
               Navigator.of(context).popUntil((route) => route.isFirst);
             },
           ),
-          title: const Text('BDRN Verification',
+          title: const Text('eBoardResults',
               style: TextStyle(color: Colors.black45, fontSize: 15)),
           actions: <Widget>[
             IconButton(
