@@ -62,7 +62,7 @@ class _AboutState extends State<About> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/images/eBoardResults.jpg',
+                        'assets/images/eboardresults.png',
                         width: 100,
                         height: 100,
                       ),
@@ -73,7 +73,7 @@ class _AboutState extends State<About> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'Version 1.0.1',
+                        'Version 1.0.2',
                         style: TextStyle(fontSize: 14),
                       ),
                     ],
